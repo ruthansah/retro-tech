@@ -1,3 +1,4 @@
+import { ProductService } from './products/product.service';
 import { StarComponent } from './shared/star.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 
@@ -19,7 +20,7 @@ import { ProductListComponent } from './products/product-list.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
