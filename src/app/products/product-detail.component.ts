@@ -1,31 +1,34 @@
 import { IProduct } from './product';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductService } from './product.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
-  templateUrl: './product-detail.component.html'
-  
-})
+  templateUrl: './product-detail.component.html'})
 export class ProductDetailComponent implements OnInit {
 
   pageTitle: string = 'Product Detail';
   product: IProduct;
-
-  constructor(private _route: ActivatedRoute) { }
+  errorMessage: String;
+  //imageWidth: number = 100;
+  //imageMargin:number = 50;
+  constructor(private _route: ActivatedRoute,
+              private _router: Router,
+              private _productService: ProductService) { }
 
   ngOnInit() {
     let id= +this._route.snapshot.paramMap.get('id');/// "+" converts the string to a numeric id 
-    this.pageTitle += `: ${id}`;
-    this.product = {
-      "productId": id,
-      "productName": "Leaf Rake",
-      "productCode": "GDN-0011",
-      "releaseDate": "March 19, 2016",
-      "description": "Leaf rake with 48-inch wooden handle.",
-      "price": 19.95,
-      "starRating": 3.2,
-      "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
-   }
+    this.pageTitle += `: ${id}`;  
+    this._productService.getProduct(id)
+    .subscribe(product => {
+        this.product = product;
+    },
+        error => this.errorMessage = <any>error);
+      }
+
+  onBack():void{
+    this._router.navigate(['/products']);
   }
 
 }
