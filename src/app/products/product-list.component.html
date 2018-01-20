@@ -1,11 +1,8 @@
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        {{pageTitle}}
-    </div>
-    <div class="panel-body">
+<div class="container">
+    <div class="row">
         <div class="row">
-            <div class="col-md-2">Filter by:</div>
-            <div class="col-md-4">
+            <div class="col-md-4">Filter by:</div>
+            <div class="col-md-8">
                 <input type="text" [(ngModel)]='listFilter' />
             </div>
         </div>
@@ -19,9 +16,9 @@
                 <thead>
                     <tr>
                         <th>
-                            <button class="btn btn-primary" (click)="toggleImage()">
-                                {{showImage ? 'Hide' : 'Show'}} Image
-                            </button>
+                            <button class="btn btn-primary " (click)="toggleImage()">
+                                            {{showImage ? 'Hide' : 'Show'}} Image
+                                        </button>
                         </th>
                         <th>Product</th>
                         <th>Code</th>
