@@ -14,8 +14,11 @@
                     <pm-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event)'></pm-star>
                 </div>
             </div>
-            <div class="col-md-6">
+            <!--div class="col-md-6">
                 <img [src]='product.imageUrl' [title]='product.productName' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
+            </div-->
+            <div class="col-md-6">
+                <img [src]='product.imageUrl' class="img-responsive img-rounded" alt="Cinque Terre" width="354" height="286">
             </div>
         </div>
 
