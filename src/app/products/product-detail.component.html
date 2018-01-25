@@ -1,31 +1,37 @@
-<div class='panel panel-primary'>
-    <div class='panel-heading'>
-        {{pageTitle + ': '}}
-    </div>
-    <div class="panel-body" *ngIf="product">
-        <div class="row">
-            <div class="col-md-6">
-                <div> Name: {{product.productName}}</div>
-                <div> Code: {{product.productCode}}</div>
-                <div> Description: {{product.description}}</div>
-                <div> Price: {{product.price | currency: 'USD': true : '1.2-2'}}</div>
-                <div> Availability: {{product.releaseDate}}</div>
-                <div>Rating:
-                    <pm-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event)'></pm-star>
-                </div>
-            </div>
-            <!--div class="col-md-6">
-                <img [src]='product.imageUrl' [title]='product.productName' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
-            </div-->
-            <div class="col-md-6">
-                <img [src]='product.imageUrl' class="img-responsive img-rounded" alt="Cinque Terre" width="354" height="286">
-            </div>
-        </div>
+<div class="container">
+  <div class="row">
+      <div class="col-lg-12 col-md-12 ">
+          <div class="post-preview">
 
-    </div>
-    <div class='panel-footer'>
-        <a class='btn btn-default' (click)='onBack()' style='width:80px'>
-            <i class='glyphicon glyphicon-chevron-left'></i>Back
-        </a>
-    </div>
+                  <h2 class="post-subtitle">
+                    <div  *ngIf="product">
+                      <div class="row">
+                          <div class="col-md-5">
+                              <img [src]='product.imageUrl' class="img-responsive img-rounded" alt="Cinque Terre" width="354" height="286">
+                          </div>
+                          <div class="col-md-7">
+                              <div> Name: {{product.productName}}</div>
+                              <div> Code: {{product.productCode}}</div>
+                              <div> Description: {{product.description}}</div>
+                              <div> Price: {{product.price | currency: 'USD': true : '1.2-2'}}</div>
+                              <div> Availability: {{product.releaseDate}}</div>
+                              <div>Rating:
+                                  <pm-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event)'></pm-star>
+                              </div>
+                          </div>
+                      
+                      </div>
+              
+                  </div>
+                  </h2>
+       
+        
+          </div>
+      </div>
+      <div>
+          <button class="btn btn-default btn-lg" (click)='onBack()' style='width:80px'>
+              <span class="glyphicon glyphicon-menu-left"></span> Back
+          </button>
+  </div>
+  </div>
 </div>

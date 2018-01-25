@@ -11,8 +11,8 @@ export class ProductDetailComponent implements OnInit {
   pageTitle: string = 'Product Detail';
   product: IProduct;
   errorMessage: String;
-  //imageWidth: number = 100;
-  //imageMargin:number = 50;
+  imageWidth: number = 100;
+  imageMargin:number = 50;
   constructor(private _route: ActivatedRoute,
               private _router: Router,
               private _productService: ProductService) { }
